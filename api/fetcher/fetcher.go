@@ -31,6 +31,16 @@ type Fetcher struct {
 	Endpoint string
 }
 
+func NewFetcher(endpoint string, client HttpClient) *Fetcher {
+	if client == nil {
+		client = http.DefaultClient
+	}
+	return &Fetcher{
+		Client:   client,
+		Endpoint: endpoint,
+	}
+}
+
 func (f *Fetcher) Fetch(payload any) (*Response, error) {
 	b, err := json.Marshal(payload)
 	if err != nil {
