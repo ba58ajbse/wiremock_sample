@@ -1,0 +1,16 @@
+{
+    "request": {
+        "method": "POST",
+        "url": "/api/feedlist"
+    },
+    "response": {
+        "bodyFileName": "feedlist.hbs",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "status": 200,
+        "transformers": [
+            "response-template"
+        ]
+    }
+}

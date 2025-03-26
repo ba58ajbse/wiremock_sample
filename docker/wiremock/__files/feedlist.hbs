@@ -1,0 +1,8 @@
+[
+  {{#each (jsonPath request.body '$.symbol')}}
+    {
+      "symbol": "{{this}}",
+      "timestamp": "{{now format='yyyy-MM-dd HH:mm:ss'}}"
+    }{{#unless @last}},{{/unless}}
+  {{/each}}
+]

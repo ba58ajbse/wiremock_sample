@@ -1,0 +1,28 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/login",
+    "bodyPatterns": [
+      {
+        "not": {
+          "matchesJsonPath": {
+            "expression": "$.username",
+            "equalTo": "admin"
+          }
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "meta": {
+        "error": "Invalid user."
+      },
+      "data": {}
+    }
+  }
+}
